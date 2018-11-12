@@ -2,7 +2,7 @@
   "name": "encreinformatique/mobiyo",
   "description": "Library to deal with Mobiyo phones number.",
   "type": "library",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Julien Devergnies"
