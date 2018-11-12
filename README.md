@@ -10,20 +10,6 @@ This library is not on Packagist yet.
 
 ### Step 1
 
-Add the repository to the composer.
-
-```$xslt
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:encreinformatique/mobiyo.git"
-        },
-    ]
-```
-
-
-### Step 2
-
-Run composer.
+Add the package using composer.
 
 ```composer require encreinformatique/mobiyo```
