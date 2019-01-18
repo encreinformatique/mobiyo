@@ -97,6 +97,23 @@ class ClientTest extends TestCase
     }
 
     /**
+     * @test
+     * @group Client
+     */
+    public function mandatoryFields()
+    {
+        $payload = new Payload('0320123456', 120);
+
+        $client = new ClientTested(self::LOGIN, self::PASSWORD);
+        $arguments = $client->prepareArguments($payload);
+
+        $this->assertTrue(is_array($arguments));
+        $this->assertEquals($arguments['duree_resa'], 120);
+        $this->assertEquals($arguments['destination'], $payload->getPlainPhone());
+        $this->assertEquals($arguments['destination'], '0320123456');
+    }
+
+        /**
      * @param $arguments
      * @param $responseWs
      * @return \PHPUnit\Framework\MockObject\MockObject
