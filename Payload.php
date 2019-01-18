@@ -10,6 +10,8 @@ namespace EncreInformatique\Mobiyo;
 
 class Payload
 {
+    const DEFAULT_LENGTH = 180;
+
     /**
      * @var string $plainPhone
      */
@@ -49,7 +51,7 @@ class Payload
      * @param string $plainPhone
      * @param int $length
      */
-    public function __construct(string $plainPhone, int $length = 180)
+    public function __construct(string $plainPhone, int $length = self::DEFAULT_LENGTH)
     {
         $this->plainPhone = $plainPhone;
         $this->length = $length;

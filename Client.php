@@ -91,6 +91,7 @@ class Client
     {
         $arguments = array(
             'destination' => $payload->getPlainPhone(),
+            'duree_resa' => $payload->getLength(),
             'customer' => $payload->getCustomer(),
             'ip' => $payload->getCallerIp(),
             'nom_cab' => $payload->getCabinet(),
