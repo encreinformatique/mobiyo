@@ -21,7 +21,7 @@ class ClientTest extends TestCase
     /**
      * @var string
      */
-    protected static $wsdlFile;
+    protected static $wsdlFile = 'https://wshiconnect.mediakiosque.com/ws/wsdl/Hiconnect.wsdl';
 
     /**
      * @test
@@ -35,8 +35,8 @@ class ClientTest extends TestCase
         $soapClient = $reflected->getProperty('soapClient');
         $soapClient->setAccessible(true);
 
-        $this->assertTrue($soapClient->class === 'EncreInformatique\Mobiyo\Client');
-        $this->assertTrue($soapClient->getValue($client) instanceof \SoapClient);
+        $this->assertSame('EncreInformatique\Mobiyo\Client', $soapClient->class);
+        $this->assertInstanceOf(\SoapClient::class, $soapClient->getValue($client));
     }
 
     /**
@@ -52,10 +52,10 @@ class ClientTest extends TestCase
         /*
         * This method is returning "ParseError: syntax error, unexpected '$errcode' (T_VARIABLE)"
         */
-        // $soapClientMock = $this->getMockFromWsdl(self::$wsdlFile);
-        // $soapClientMock
-        //     ->method('reserver_numero')
-        //     ->willReturn($errorWs);
+//         $soapClientMock = $this->getMockFromWsdl(self::$wsdlFile);
+//         $soapClientMock
+//             ->method('reserver_numero')
+//             ->willReturn($responseWs);
 
         $client = new ClientTested(self::LOGIN, self::PASSWORD);
 
@@ -66,7 +66,7 @@ class ClientTest extends TestCase
         $client->setSoapClient($soapClientMock);
         $response = $client->getNumber($payload);
 
-        $this->assertTrue($response instanceof Response);
+        $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(Response::CODE_UNKNOWN, $response->getStatusCode());
     }
 
@@ -92,7 +92,7 @@ class ClientTest extends TestCase
         $client->setSoapClient($soapClientMock);
         $response = $client->getNumber($payload);
 
-        $this->assertTrue($response instanceof Response);
+        $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(Response::CODE_SUCCESS, $response->getStatusCode());
     }
 

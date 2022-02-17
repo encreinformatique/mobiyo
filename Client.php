@@ -65,7 +65,7 @@ class Client
         $idReservation = null;
         $statusCode = Response::CODE_UNKNOWN;
         $statusMessage = null;
-        if (isset($response['errcode'])) {
+        if (\is_array($response) && \array_key_exists('errcode', $response)) {
             switch ($response['errcode']) {
                 case 'OK':
                     $transformedNumber = $response['numero_reserve'];
