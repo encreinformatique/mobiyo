@@ -21,7 +21,7 @@ class ClientTest extends TestCase
     /**
      * @var string
      */
-    protected static $wsdlFile;
+    protected static $wsdlFile = 'https://wshiconnect.mediakiosque.com/ws/wsdl/Hiconnect.wsdl';
 
     /**
      * @test
@@ -52,10 +52,10 @@ class ClientTest extends TestCase
         /*
         * This method is returning "ParseError: syntax error, unexpected '$errcode' (T_VARIABLE)"
         */
-        // $soapClientMock = $this->getMockFromWsdl(self::$wsdlFile);
-        // $soapClientMock
-        //     ->method('reserver_numero')
-        //     ->willReturn($errorWs);
+//         $soapClientMock = $this->getMockFromWsdl(self::$wsdlFile);
+//         $soapClientMock
+//             ->method('reserver_numero')
+//             ->willReturn($responseWs);
 
         $client = new ClientTested(self::LOGIN, self::PASSWORD);
 
