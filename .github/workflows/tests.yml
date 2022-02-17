@@ -27,4 +27,4 @@ jobs:
         run: composer install --no-interaction --no-suggest --prefer-dist
 
       - name: Process the tests
-        run: composer test
+        run: php -v && composer test
